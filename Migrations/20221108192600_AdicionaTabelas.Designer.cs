@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using payment_api.Context;
 
@@ -11,9 +12,10 @@ using payment_api.Context;
 namespace TrilhaApiDesafio.Migrations
 {
     [DbContext(typeof(OrganizadorContext))]
-    partial class OrganizadorContextModelSnapshot : ModelSnapshot
+    [Migration("20221108192600_AdicionaTabelas")]
+    partial class AdicionaTabelas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,7 +96,7 @@ namespace TrilhaApiDesafio.Migrations
 
                     b.ToTable("Vendedor");
                 });
-            
+
             modelBuilder.Entity("payment_api.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
@@ -115,8 +117,7 @@ namespace TrilhaApiDesafio.Migrations
                 {
                     b.HasOne("payment_api.Models.Venda", null)
                         .WithMany("ItensVenda")
-                        .HasForeignKey("VendaId")
-                        .HasForeignKey("ProdutoId");
+                        .HasForeignKey("VendaId");
                 });
 
             modelBuilder.Entity("payment_api.Models.Venda", b =>

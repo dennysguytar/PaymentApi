@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using TrilhaApiDesafio.Models;
+using payment_api.Models;
 
-namespace TrilhaApiDesafio.Context
+namespace payment_api.Context
 {
     public class OrganizadorContext : DbContext
     {
@@ -10,6 +10,10 @@ namespace TrilhaApiDesafio.Context
             
         }
 
-        public DbSet<Tarefa> Tarefas { get; set; }
+        public DbSet<Venda> Venda { get; set; }
+        public DbSet<ItensVenda> ItensVenda { get; set; }
+        public DbSet<Vendedor> Vendedor { get; set; }
+        public DbSet<Produto> Produto { get; set; }
+
     }
 }

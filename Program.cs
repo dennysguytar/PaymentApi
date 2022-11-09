@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
-using TrilhaApiDesafio.Context;
+using payment_api.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
